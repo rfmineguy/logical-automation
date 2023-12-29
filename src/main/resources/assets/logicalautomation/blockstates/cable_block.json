@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "logicalautomation:block/cable_core"
+    }
+  }
+}

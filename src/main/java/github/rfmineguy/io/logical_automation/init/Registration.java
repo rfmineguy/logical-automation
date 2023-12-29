@@ -1,31 +1,33 @@
 package github.rfmineguy.io.logical_automation.init;
 
 import github.rfmineguy.io.logical_automation.LogicalAutomation;
+import github.rfmineguy.io.logical_automation.blocks.cable.CableBlock;
+import github.rfmineguy.io.logical_automation.blocks.cable.CableBlockEntity;
 import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlock;
 import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlockEntity;
 import github.rfmineguy.io.logical_automation.blocks.SimpleBlock;
 import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlockMenu;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.network.IContainerFactory;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.apache.commons.logging.Log;
 
 import java.util.function.Supplier;
 
 public class Registration {
-
     /**
      * Registries
      */
@@ -35,11 +37,13 @@ public class Registration {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, LogicalAutomation.MODID);
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, LogicalAutomation.MODID);
 
+
     /**
      * Blocks
      */
     public static final RegistryObject<SimpleBlock> SIMPLE_BLOCK = registerBlock("simple_block", SimpleBlock::new);
     public static final RegistryObject<Block> CONTROLLER_BLOCK = registerBlock("controller_block", () -> new ControllerBlock(BlockBehaviour.Properties.of()));
+    public static final RegistryObject<Block> CABLE_BLOCK = registerBlock("cable_core", () -> new CableBlock(BlockBehaviour.Properties.of()));
 
     /**
      * Menus
@@ -52,6 +56,10 @@ public class Registration {
     public static final RegistryObject<BlockEntityType<ControllerBlockEntity>> CONTROLLER_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("controller_block_entity",
                     () -> BlockEntityType.Builder.of(ControllerBlockEntity::new, CONTROLLER_BLOCK.get()).build(null)
+            );
+    public static final RegistryObject<BlockEntityType<CableBlockEntity>> CABLE_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("cable_block_entity",
+                    () -> BlockEntityType.Builder.of(CableBlockEntity::new, CABLE_BLOCK.get()).build(null)
             );
 
     /**
