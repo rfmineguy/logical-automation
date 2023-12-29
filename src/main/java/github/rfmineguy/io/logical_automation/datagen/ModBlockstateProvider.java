@@ -15,8 +15,8 @@ public class ModBlockstateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(Registration.Blocks.SIMPLE_BLOCK);
-        blockWithItem(Registration.Blocks.CONTROLLER_BLOCK);
+        blockWithItem(Registration.SIMPLE_BLOCK);
+        blockWithItem(Registration.CONTROLLER_BLOCK);
     }
 
     public <T extends Block> void blockWithItem(RegistryObject<T> block) {

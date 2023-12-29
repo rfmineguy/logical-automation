@@ -20,15 +20,15 @@ public class DataGenRoot {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        // generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
-        // generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+        generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
 
-        //generator.addProvider(event.includeClient(), new ModBlockstateProvider(packOutput, existingFileHelper));
-        //generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModBlockstateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
 
-        //ModBlockTagProvider tagProvider = generator.addProvider(event.includeServer(),
-        //        new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper));
+        ModBlockTagProvider tagProvider = generator.addProvider(event.includeServer(),
+            new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper));
 
-        //generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, tagProvider.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, tagProvider.contentsGetter(), existingFileHelper));
     }
 }

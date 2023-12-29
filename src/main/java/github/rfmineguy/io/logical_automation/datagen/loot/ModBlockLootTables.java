@@ -17,12 +17,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(Registration.Blocks.CONTROLLER_BLOCK.get());
-        this.dropSelf(Registration.Blocks.SIMPLE_BLOCK.get());
+        this.dropSelf(Registration.CONTROLLER_BLOCK.get());
+        this.dropSelf(Registration.SIMPLE_BLOCK.get());
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return Registration.Registries.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        return Registration.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }

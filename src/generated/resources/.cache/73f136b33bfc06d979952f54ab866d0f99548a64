@@ -1,0 +1,7 @@
+// 1.20.1	2023-12-27T23:06:25.062882	Block States: logicalautomation
+ce655e98d6ec6d0368b168ff174f4019834afe71 assets/logicalautomation/blockstates/controller_block.json
+5bd36d51084a8b42bacb1320d80b9c6351650e91 assets/logicalautomation/blockstates/simple_block.json
+742fcddea3f2637b9527d867c07d0b452befab6a assets/logicalautomation/models/block/controller_block.json
+eb14ef707d7940d3c448546399166a2aa03d1500 assets/logicalautomation/models/block/simple_block.json
+2be6beeacf314ba85e607ae69b2aa68b50ef9877 assets/logicalautomation/models/item/controller_block.json
+0185b6775bf4ab04e808d29bb8115912284524de assets/logicalautomation/models/item/simple_block.json
