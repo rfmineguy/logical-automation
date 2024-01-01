@@ -10,7 +10,6 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import org.jline.utils.Log;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -19,11 +18,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        simpleBlockItemBlockTexture(Registration.SIMPLE_BLOCK);
+        // simpleBlockItemBlockTexture(Registration.SIMPLE_BLOCK);
         // simpleBlockItem(Registration.CONTROLLER_BLOCK);
+        // simpleBlockItem(Registration.CABLE_BLOCK);
+        simpleItem(Registration.NETWORK_CARD);
     }
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> itemRegistryObject) {
+    private ItemModelBuilder simpleItem(RegistryObject<? extends Item> itemRegistryObject) {
         return withExistingParent(itemRegistryObject.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(LogicalAutomation.MODID, "item/" + itemRegistryObject.getId().getPath()));
@@ -35,9 +36,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(LogicalAutomation.MODID, "item/" + item.getId().getPath()));
     }
 
-    private ItemModelBuilder simpleBlockItemBlockTexture(RegistryObject<? extends Block> item) {
-        return withExistingParent(item.getId().getPath(),
+    private ItemModelBuilder simpleBlockItemBlockTexture(RegistryObject<? extends Block> block) {
+        return withExistingParent(block.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(LogicalAutomation.MODID,"block/" + item.getId().getPath()));
+                new ResourceLocation(LogicalAutomation.MODID,"block/" + block.getId().getPath()));
     }
 }

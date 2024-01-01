@@ -11,6 +11,11 @@ public class ModelRegistry {
      */
     public static void onModelRegister(ModelEvent.RegisterAdditional event) {
         event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_core"));
-        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm"));
+        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm_down"));
+        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm_up"));
+        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm_east"));
+        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm_west"));
+        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm_north"));
+        event.register(new ResourceLocation(LogicalAutomation.MODID, "block/cable_arm_south"));
     }
 }

@@ -60,7 +60,7 @@ public class ControllerBlock extends BaseEntityBlock {
                 throw new IllegalStateException("ControllerBlock: Container provider missing");
             }
         }
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

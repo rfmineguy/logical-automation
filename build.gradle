@@ -137,7 +137,9 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
-
+    maven {
+        url 'https://dogforce-games.com/maven'
+    }
 }
 
 dependencies {
@@ -160,6 +162,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
+    implementation "dev.gigaherz.graph:GraphLib3:3.0.5"
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))

@@ -40,15 +40,15 @@ public class LogicalAutomation
     {
     }
 
-    // @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            event.enqueueWork(() -> {
-            });
-            IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-            modEventBus.addListener(ModelRegistry::onModelRegister);
-            modEventBus.addListener(BlockRendererRegistration::registerRenderers);
+            // event.enqueueWork(() -> {
+            // });
+            // IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+            // modEventBus.addListener(ModelRegistry::onModelRegister);
+            // modEventBus.addListener(BlockRendererRegistration::registerRenderers);
 
             MenuScreens.register(Registration.CONTROLLER_BLOCK_MENU.get(), ControllerBlockScreen::new);
         }
