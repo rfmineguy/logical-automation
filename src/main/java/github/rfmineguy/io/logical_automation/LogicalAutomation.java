@@ -2,6 +2,8 @@ package github.rfmineguy.io.logical_automation;
 
 import com.mojang.logging.LogUtils;
 import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlockScreen;
+import github.rfmineguy.io.logical_automation.blocks.test_chest.TestChestBlockEntity;
+import github.rfmineguy.io.logical_automation.blocks.test_chest.TestChestBlockScreen;
 import github.rfmineguy.io.logical_automation.init.BlockRendererRegistration;
 import github.rfmineguy.io.logical_automation.init.ModelRegistry;
 import github.rfmineguy.io.logical_automation.init.Registration;
@@ -51,6 +53,7 @@ public class LogicalAutomation
             // modEventBus.addListener(BlockRendererRegistration::registerRenderers);
 
             MenuScreens.register(Registration.CONTROLLER_BLOCK_MENU.get(), ControllerBlockScreen::new);
+            MenuScreens.register(Registration.TEST_CHEST_BLOCK_MENU.get(), TestChestBlockScreen::new);
         }
     }
 }

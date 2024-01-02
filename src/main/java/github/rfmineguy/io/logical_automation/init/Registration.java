@@ -5,6 +5,9 @@ import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlock;
 import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlockEntity;
 import github.rfmineguy.io.logical_automation.blocks.SimpleBlock;
 import github.rfmineguy.io.logical_automation.blocks.controller.ControllerBlockMenu;
+import github.rfmineguy.io.logical_automation.blocks.test_chest.TestChestBlock;
+import github.rfmineguy.io.logical_automation.blocks.test_chest.TestChestBlockEntity;
+import github.rfmineguy.io.logical_automation.blocks.test_chest.TestChestBlockMenu;
 import github.rfmineguy.io.logical_automation.items.ConnectionCardItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -43,11 +46,13 @@ public class Registration {
      */
     public static final RegistryObject<SimpleBlock> SIMPLE_BLOCK = registerBlock("simple_block", SimpleBlock::new);
     public static final RegistryObject<Block> CONTROLLER_BLOCK = registerBlock("controller_block", () -> new ControllerBlock(BlockBehaviour.Properties.of()));
+    public static final RegistryObject<Block> TEST_CHEST_BLOCK = registerBlock("test_chest_block", () -> new TestChestBlock(BlockBehaviour.Properties.of()));
 
     /**
      * Menus
      */
     public static final RegistryObject<MenuType<ControllerBlockMenu>> CONTROLLER_BLOCK_MENU = registerMenuType("controller_menu", ControllerBlockMenu::new);
+    public static final RegistryObject<MenuType<TestChestBlockMenu>> TEST_CHEST_BLOCK_MENU = registerMenuType("test_chest_menu", TestChestBlockMenu::new);
 
     /**
      * Block Entities
@@ -55,6 +60,10 @@ public class Registration {
     public static final RegistryObject<BlockEntityType<ControllerBlockEntity>> CONTROLLER_BLOCK_ENTITY =
         BLOCK_ENTITIES.register("controller_block_entity",
             () -> BlockEntityType.Builder.of(ControllerBlockEntity::new, CONTROLLER_BLOCK.get()).build(null)
+        );
+    public static final RegistryObject<BlockEntityType<TestChestBlockEntity>> TEST_CHEST_BLOCK_ENTITY =
+        BLOCK_ENTITIES.register("test_chest_block_entity",
+                () -> BlockEntityType.Builder.of(TestChestBlockEntity::new, TEST_CHEST_BLOCK.get()).build(null)
         );
 
     /**
